@@ -16,6 +16,3 @@ npm-debug.log*
 # Local env (if you add any)
 .env
 .env.local
-
-# Assets (images)
-assets/
