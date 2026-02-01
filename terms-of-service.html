@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Service - TopCheese</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #2563eb;
+        --secondary: #1e40af;
+        --accent: #2563eb;
+        --light: #f8f9fa;
+        --border: #e1e4e8;
+        --text-primary: #2d3748;
+        --text-secondary: #4a5568;
+        --gradient: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        line-height: 1.7;
+        color: var(--text-primary);
+        background: var(--light);
+        overflow-x: hidden;
+      }
+
+      .decorative-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.03;
+        background-image: repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 35px,
+            var(--primary) 35px,
+            var(--primary) 70px
+          ),
+          repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 35px,
+            var(--primary) 35px,
+            var(--primary) 70px
+          );
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      header {
+        background: white;
+        border-bottom: 3px solid var(--accent);
+        padding: 48px 0 40px;
+        margin-bottom: 64px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -100px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(37, 99, 235, 0.08) 0%,
+          transparent 70%
+        );
+        animation: float 20s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        50% {
+          transform: translate(-30px, -30px) rotate(180deg);
+        }
+      }
+
+      .app-name {
+        font-family: "Crimson Pro", serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 8px;
+        letter-spacing: -0.02em;
+        animation: slideDown 0.6s ease-out;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .page-title {
+        font-family: "Crimson Pro", serif;
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 16px;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        animation: slideDown 0.8s ease-out 0.1s backwards;
+      }
+
+      .last-updated {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        font-weight: 500;
+        animation: slideDown 1s ease-out 0.2s backwards;
+      }
+
+      .intro {
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        margin-bottom: 48px;
+        border-left: 4px solid var(--accent);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        animation: fadeIn 1s ease-out 0.3s backwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .intro p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--text-secondary);
+      }
+
+      .section {
+        background: white;
+        padding: 48px 40px;
+        border-radius: 12px;
+        margin-bottom: 32px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        animation: fadeInUp 0.8s ease-out backwards;
+      }
+
+      .section:nth-child(1) {
+        animation-delay: 0.4s;
+      }
+      .section:nth-child(2) {
+        animation-delay: 0.5s;
+      }
+      .section:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+      .section:nth-child(4) {
+        animation-delay: 0.7s;
+      }
+      .section:nth-child(5) {
+        animation-delay: 0.8s;
+      }
+      .section:nth-child(6) {
+        animation-delay: 0.9s;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .section:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      }
+
+      .section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 0;
+        background: var(--accent);
+        transition: height 0.3s ease;
+      }
+
+      .section:hover::before {
+        height: 100%;
+      }
+
+      h2 {
+        font-family: "Crimson Pro", serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 24px;
+        letter-spacing: -0.02em;
+      }
+
+      p {
+        margin-bottom: 16px;
+        color: var(--text-secondary);
+        font-size: 1.05rem;
+      }
+
+      ul {
+        margin-left: 24px;
+        margin-bottom: 16px;
+      }
+
+      li {
+        margin-bottom: 16px;
+        color: var(--text-secondary);
+        font-size: 1.05rem;
+        line-height: 1.7;
+      }
+
+      strong {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 500;
+        border-bottom: 2px solid transparent;
+        transition: border-color 0.2s ease;
+      }
+
+      a:hover {
+        border-bottom-color: var(--accent);
+      }
+
+      footer {
+        background: var(--primary);
+        color: white;
+        padding: 56px 0;
+        margin-top: 80px;
+        text-align: center;
+      }
+
+      .footer-content {
+        animation: fadeIn 1.2s ease-out 1s backwards;
+      }
+
+      .contact-email {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+        font-family: "Crimson Pro", serif;
+      }
+
+      .contact-email a {
+        color: white;
+        border-bottom-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .contact-email a:hover {
+        border-bottom-color: white;
+      }
+
+      .footer-note {
+        font-size: 0.95rem;
+        font-weight: 600;
+        opacity: 0.8;
+        margin-top: 32px;
+        color: white;
+      }
+
+      @media (max-width: 768px) {
+        .page-title {
+          font-size: 2.5rem;
+        }
+
+        .app-name {
+          font-size: 2rem;
+        }
+
+        header {
+          padding: 32px 0 24px;
+          margin-bottom: 40px;
+        }
+
+        .section,
+        .intro {
+          padding: 32px 24px;
+        }
+
+        h2 {
+          font-size: 1.6rem;
+        }
+
+        p,
+        li {
+          font-size: 1rem;
+        }
+      }
+
+      .highlight {
+        background: linear-gradient(
+          120deg,
+          rgba(37, 99, 235, 0.1) 0%,
+          rgba(37, 99, 235, 0.05) 100%
+        );
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="decorative-bg"></div>
+
+    <header>
+      <div class="container">
+        <div class="app-name">TopCheese</div>
+        <h1 class="page-title">Terms of Service</h1>
+        <p class="last-updated">Last updated: February 2026</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="intro">
+        <p>
+          By downloading or using TopCheese ("the app"), you agree to these
+          terms. If you do not agree, please do not use the app.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>What TopCheese does</h2>
+        <ul>
+          <li>
+            TopCheese is a <strong>sports and stats app</strong> that shows NHL
+            shots on goal and related information (e.g. shots since last goal,
+            heat indicators). It is for
+            <strong>informational and entertainment purposes only</strong>.
+          </li>
+          <li>
+            We do <strong>not</strong> guarantee that stats are real-time,
+            complete, or accurate. Data may be delayed or wrong due to sources,
+            connectivity, or technical issues. Do not rely on the app for
+            official standings, betting, or critical decisions.
+          </li>
+          <li>
+            TopCheese is
+            <strong>not affiliated with the NHL, NHLPA, or any team</strong>.
+            All NHL-related data is used under applicable terms; team and league
+            names and marks are the property of their owners.
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Your responsibilities</h2>
+        <ul>
+          <li>
+            Use the app in a lawful way and only for personal, non-commercial
+            use, unless we explicitly allow otherwise.
+          </li>
+          <li>
+            Do not attempt to reverse-engineer, scrape, or bulk-download our
+            data or systems.
+          </li>
+          <li>
+            Do not use the app to interfere with our services, other users, or
+            third-party systems.
+          </li>
+          <li>
+            You are responsible for how you use the app and any device or
+            account you use to access it.
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Payments and subscriptions</h2>
+        <ul>
+          <li>
+            <strong>Payments are handled entirely by Apple.</strong> When you
+            subscribe in the app, you pay through your Apple ID and Apple's
+            payment system. Apple's terms and conditions apply to all purchases.
+          </li>
+          <li>
+            <strong>Refunds</strong> are governed by
+            <span class="highlight">Apple's refund policy</span>. We cannot
+            issue refunds ourselves; any refund requests must be made through
+            Apple (e.g. via Report a Problem or Apple Support).
+          </li>
+          <li>
+            Subscription terms (e.g. monthly or annual, renewal, cancellation)
+            are shown in the app and in Apple's subscription management. By
+            subscribing, you agree to those terms.
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Termination and changes</h2>
+        <ul>
+          <li>
+            We may <strong>suspend or end</strong> your access to the app or to
+            premium features if we believe you have breached these terms or
+            misused the app. We will do so in a reasonable way where possible.
+          </li>
+          <li>
+            We may <strong>change these terms</strong> over time. We will post
+            the updated terms (e.g. in the app or on our website). If you keep
+            using the app after changes, you accept the new terms. If you do not
+            agree, stop using the app.
+          </li>
+          <li>
+            We may also change or discontinue features or the app itself. We
+            will try to give notice where it is practical to do so.
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Disclaimer</h2>
+        <p>
+          The app and its content are provided <strong>"as is"</strong>. We do
+          not promise that the app will be error-free, always available, or that
+          stats or other information are accurate or complete. Use the app at
+          your own risk.
+        </p>
+        <p>
+          To the maximum extent permitted by law, we are not liable for any
+          losses or damages arising from your use of the app or reliance on its
+          content.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>Contact</h2>
+        <p>
+          For questions about these terms:
+          <a href="mailto:support@topcheeseapp.com">support@topcheeseapp.com</a>
+        </p>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container footer-content">
+        <div class="contact-email">
+          <a href="mailto:support@topcheeseapp.com">support@topcheeseapp.com</a>
+        </div>
+        <p class="footer-note">
+          TopCheese - When the puck heats up, you'll know first.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

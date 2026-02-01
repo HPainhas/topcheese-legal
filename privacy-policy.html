@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy - TopCheese</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #2563eb;
+        --secondary: #1e40af;
+        --accent: #2563eb;
+        --light: #f8f9fa;
+        --border: #e1e4e8;
+        --text-primary: #2d3748;
+        --text-secondary: #4a5568;
+        --gradient: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        line-height: 1.7;
+        color: var(--text-primary);
+        background: var(--light);
+        overflow-x: hidden;
+      }
+
+      .decorative-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.03;
+        background-image: repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 35px,
+            var(--primary) 35px,
+            var(--primary) 70px
+          ),
+          repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 35px,
+            var(--primary) 35px,
+            var(--primary) 70px
+          );
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      header {
+        background: white;
+        border-bottom: 3px solid var(--accent);
+        padding: 48px 0 40px;
+        margin-bottom: 64px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -100px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(37, 99, 235, 0.08) 0%,
+          transparent 70%
+        );
+        animation: float 20s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        50% {
+          transform: translate(-30px, -30px) rotate(180deg);
+        }
+      }
+
+      .app-name {
+        font-family: "Crimson Pro", serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 8px;
+        letter-spacing: -0.02em;
+        animation: slideDown 0.6s ease-out;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .page-title {
+        font-family: "Crimson Pro", serif;
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 16px;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        animation: slideDown 0.8s ease-out 0.1s backwards;
+      }
+
+      .last-updated {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        font-weight: 500;
+        animation: slideDown 1s ease-out 0.2s backwards;
+      }
+
+      .intro {
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        margin-bottom: 48px;
+        border-left: 4px solid var(--accent);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        animation: fadeIn 1s ease-out 0.3s backwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .intro p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--text-secondary);
+      }
+
+      .section {
+        background: white;
+        padding: 48px 40px;
+        border-radius: 12px;
+        margin-bottom: 32px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        animation: fadeInUp 0.8s ease-out backwards;
+      }
+
+      .section:nth-child(1) {
+        animation-delay: 0.4s;
+      }
+      .section:nth-child(2) {
+        animation-delay: 0.5s;
+      }
+      .section:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+      .section:nth-child(4) {
+        animation-delay: 0.7s;
+      }
+      .section:nth-child(5) {
+        animation-delay: 0.8s;
+      }
+      .section:nth-child(6) {
+        animation-delay: 0.9s;
+      }
+      .section:nth-child(7) {
+        animation-delay: 1s;
+      }
+      .section:nth-child(8) {
+        animation-delay: 1.1s;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .section:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      }
+
+      .section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 0;
+        background: var(--accent);
+        transition: height 0.3s ease;
+      }
+
+      .section:hover::before {
+        height: 100%;
+      }
+
+      h2 {
+        font-family: "Crimson Pro", serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 24px;
+        letter-spacing: -0.02em;
+      }
+
+      p {
+        margin-bottom: 16px;
+        color: var(--text-secondary);
+        font-size: 1.05rem;
+      }
+
+      ul {
+        margin-left: 24px;
+        margin-bottom: 16px;
+      }
+
+      li {
+        margin-bottom: 16px;
+        color: var(--text-secondary);
+        font-size: 1.05rem;
+        line-height: 1.7;
+      }
+
+      strong {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 500;
+        border-bottom: 2px solid transparent;
+        transition: border-color 0.2s ease;
+      }
+
+      a:hover {
+        border-bottom-color: var(--accent);
+      }
+
+      footer {
+        background: var(--primary);
+        color: white;
+        padding: 56px 0;
+        margin-top: 80px;
+        text-align: center;
+      }
+
+      .footer-content {
+        animation: fadeIn 1.2s ease-out 1.2s backwards;
+      }
+
+      .contact-email {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+        font-family: "Crimson Pro", serif;
+      }
+
+      .contact-email a {
+        color: white;
+        border-bottom-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .contact-email a:hover {
+        border-bottom-color: white;
+      }
+
+      .footer-note {
+        font-size: 0.95rem;
+        font-weight: 600;
+        opacity: 0.8;
+        margin-top: 32px;
+        color: white;
+      }
+
+      @media (max-width: 768px) {
+        .page-title {
+          font-size: 2.5rem;
+        }
+
+        .app-name {
+          font-size: 2rem;
+        }
+
+        header {
+          padding: 32px 0 24px;
+          margin-bottom: 40px;
+        }
+
+        .section,
+        .intro {
+          padding: 32px 24px;
+        }
+
+        h2 {
+          font-size: 1.6rem;
+        }
+
+        p,
+        li {
+          font-size: 1rem;
+        }
+      }
+
+      .highlight {
+        background: linear-gradient(
+          120deg,
+          rgba(37, 99, 235, 0.1) 0%,
+          rgba(37, 99, 235, 0.05) 100%
+        );
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="decorative-bg"></div>
+
+    <header>
+      <div class="container">
+        <div class="app-name">TopCheese</div>
+        <h1 class="page-title">Privacy Policy</h1>
+        <p class="last-updated">Last updated: February 2026</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="intro">
+        <p>
+          TopCheese ("we", "our", or "the app") is an NHL stats app that shows
+          shots on goal and related information. This policy explains what data
+          we collect, how we use it, and your rights.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>What we collect</h2>
+        <ul>
+          <li>
+            <strong>Subscription status.</strong> When you subscribe, we use
+            Apple and our subscription provider (RevenueCat) to know whether you
+            have access to premium features. We do not create or store your own
+            account; there is no sign-up or login in the app.
+          </li>
+          <li>
+            <strong>Device and app info.</strong> We may receive or use
+            information such as your device type, operating system version, and
+            app version so we can run and improve the app and provide support.
+          </li>
+          <li>
+            <strong>Usage data.</strong> We may collect limited, aggregated
+            usage information (such as app interactions) to improve performance
+            and fix issues.
+          </li>
+          <li>
+            <strong>Payments.</strong> All payments are processed by
+            <span class="highlight">Apple</span>. We do not see or store your
+            payment details. Apple's payment and privacy terms apply to
+            purchases.
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>How we collect it</h2>
+        <ul>
+          <li>
+            <strong>Through the app.</strong> Some data (e.g. app version,
+            subscription status) is collected automatically when you use the
+            app.
+          </li>
+          <li>
+            <strong>Through third parties.</strong> Subscription status and
+            related identifiers are handled by Apple and our subscription
+            provider. If we use analytics or crash-reporting tools, they may
+            collect usage or device data as described in their own policies.
+          </li>
+          <li>
+            <strong>When you subscribe.</strong> When you buy a subscription in
+            the app, Apple processes the payment and our subscription provider
+            receives information needed to grant you access (e.g. that you are a
+            subscriber). We do not receive your card or payment details.
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Why we collect it</h2>
+        <ul>
+          <li>
+            To operate the app and deliver features (including premium access).
+          </li>
+          <li>To process and manage subscriptions.</li>
+          <li>
+            To improve performance, fix bugs, and understand how the app is
+            used.
+          </li>
+          <li>To provide support (e.g. replying to your emails).</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Who we share it with</h2>
+        <ul>
+          <li>
+            <strong>Apple.</strong> For payment processing and subscription
+            management. Apple's privacy policy applies to their handling of your
+            data.
+          </li>
+          <li>
+            <strong>Subscription provider (RevenueCat).</strong> To manage
+            subscription status and entitlements so we can unlock premium
+            features correctly.
+          </li>
+          <li>
+            <strong>Service providers.</strong> We may use providers for hosting
+            and infrastructure (e.g. servers). They process data only on our
+            behalf and only as needed to run our services.
+          </li>
+        </ul>
+        <p>We do not sell your personal information.</p>
+      </div>
+
+      <div class="section">
+        <h2>Data retention and deletion</h2>
+        <p>
+          We keep data only as long as needed to run the app, manage
+          subscriptions, and meet legal obligations. If we hold data that
+          identifies you (e.g. if you contact us by email), you can ask us to
+          delete it by emailing
+          <a href="mailto:support@topcheeseapp.com">support@topcheeseapp.com</a
+          >. Subscription and purchase history are also subject to Apple's
+          policies and your device settings.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>Your rights</h2>
+        <p>
+          Depending on where you live, you may have rights to access, correct,
+          or delete your data, or to object to certain uses. To exercise these
+          or ask questions about your data, contact us at
+          <a href="mailto:support@topcheeseapp.com">support@topcheeseapp.com</a
+          >.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>Changes</h2>
+        <p>
+          We may update this policy from time to time. We will post the current
+          version in the app or on our website. Continued use of the app after
+          changes means you accept the updated policy.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>Contact</h2>
+        <p>
+          Questions about privacy or your data:
+          <a href="mailto:support@topcheeseapp.com">support@topcheeseapp.com</a>
+        </p>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container footer-content">
+        <div class="contact-email">
+          <a href="mailto:support@topcheeseapp.com">support@topcheeseapp.com</a>
+        </div>
+        <p class="footer-note">
+          TopCheese - When the puck heats up, you'll know first.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
