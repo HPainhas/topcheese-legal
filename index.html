@@ -484,9 +484,7 @@
       <span class="cta-text">Coming Soon to the App Store</span>
     </section>
     <div class="app-preview">
-      <div class="screenshot-placeholder">
-        <span>Main App Screenshot</span>
-      </div>
+      <img src="assets/topcheese-live-games.PNG" alt="TopCheese Live Games" style="width: 100%; height: auto; border-radius: 40px; border: 1px solid var(--border);">
     </div>
     <section class="features" id="features">
       <h2>Everything you need</h2>
@@ -636,10 +634,11 @@
     </footer>
     <script>
       const items = [
-        "Live Game View",
-        "Player Stats",
-        "Heat Tracker",
-        "Game Insights",
+        { text: "Paywall", image: "assets/topcheese-paywall.PNG" },
+        { text: "Live Games View", image: "assets/topcheese-live-games.PNG" },
+        { text: "Player Stats", image: "assets/topcheese-sslg-feature.PNG" },
+        { text: "Game Preview", image: "assets/topcheese-game-preview.PNG" },
+        { text: "Player Recent Performance Preview", image: "assets/topcheese-player-recent-performance.PNG" }
       ];
       const track = document.getElementById("carouselTrack");
       const indicatorsContainer = document.getElementById("indicators");
@@ -650,13 +649,13 @@
       const totalCopies = 3;
       const allItems = [];
       for (let copy = 0; copy < totalCopies; copy++) {
-        items.forEach((text, idx) => {
-          const item = document.createElement("div");
-          item.className = "screenshot-item";
-          item.innerHTML = `<span>${text}</span>`;
-          item.dataset.originalIndex = idx;
-          track.appendChild(item);
-          allItems.push(item);
+        items.forEach((item, idx) => {
+          const el = document.createElement("div");
+          el.className = "screenshot-item";
+          el.innerHTML = `<img src="${item.image}" alt="${item.text}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 40px;">`;
+          el.dataset.originalIndex = idx;
+          track.appendChild(el);
+          allItems.push(el);
         });
       }
 
