@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" as="image" href="assets/topcheese-live-games.PNG" />
     <title>TopCheese - NHL Stats Reimagined</title>
     <style>
       * {
@@ -151,6 +152,19 @@
         margin: 80px auto 0;
         padding: 0 24px;
         animation: fadeIn 1.4s ease-out;
+      }
+      .app-preview .hero-screenshot {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        border-radius: 40px;
+        border: 1px solid var(--border);
+      }
+      @media (min-width: 768px) {
+        .app-preview .hero-screenshot {
+          max-width: 420px;
+        }
       }
       @keyframes fadeIn {
         from {
@@ -463,7 +477,7 @@
     <nav>
       <div class="nav-container">
         <div class="logo-container">
-          <img class="logo-image" src="assets/topcheese-app-icon-transparent.png" alt="TopCheese">
+          <img class="logo-image" src="assets/topcheese-app-icon-transparent.png" alt="TopCheese" width="36" height="36" decoding="async">
           <div class="logo">TopCheese</div>
         </div>
         <div class="hamburger" id="hamburger">
@@ -484,7 +498,7 @@
       <span class="cta-text">Coming Soon to the App Store</span>
     </section>
     <div class="app-preview">
-      <img src="assets/topcheese-live-games.PNG" alt="TopCheese Live Games" style="width: 100%; height: auto; border-radius: 40px; border: 1px solid var(--border);">
+      <img class="hero-screenshot" src="assets/topcheese-live-games.PNG" alt="TopCheese Live Games" fetchpriority="high" decoding="async">
     </div>
     <section class="features" id="features">
       <h2>Everything you need</h2>
@@ -640,11 +654,13 @@
         { text: "Game Preview", image: "assets/topcheese-game-preview.PNG" },
         { text: "Player Recent Performance Preview", image: "assets/topcheese-player-recent-performance.PNG" }
       ];
+      const CAROUSEL_INTERVAL_MS = 3000;
       const track = document.getElementById("carouselTrack");
       const indicatorsContainer = document.getElementById("indicators");
       let currentIndex = 0;
       let isUserInteracting = false;
       let autoScrollInterval;
+      let resetTimeoutId = null;
 
       const totalCopies = 3;
       const allItems = [];
@@ -652,7 +668,7 @@
         items.forEach((item, idx) => {
           const el = document.createElement("div");
           el.className = "screenshot-item";
-          el.innerHTML = `<img src="${item.image}" alt="${item.text}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 40px;">`;
+          el.innerHTML = `<img src="${item.image}" alt="${item.text}" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover; border-radius: 40px;">`;
           el.dataset.originalIndex = idx;
           track.appendChild(el);
           allItems.push(el);
@@ -707,20 +723,24 @@
       }
 
       function startAutoScroll() {
+        clearInterval(autoScrollInterval);
         autoScrollInterval = setInterval(() => {
           if (!isUserInteracting) {
             nextSlide();
           }
-        }, 3000);
+        }, CAROUSEL_INTERVAL_MS);
       }
 
       function resetAutoScroll() {
         isUserInteracting = true;
         clearInterval(autoScrollInterval);
-        setTimeout(() => {
+        autoScrollInterval = null;
+        if (resetTimeoutId) clearTimeout(resetTimeoutId);
+        resetTimeoutId = setTimeout(() => {
+          resetTimeoutId = null;
           isUserInteracting = false;
           startAutoScroll();
-        }, 3000);
+        }, CAROUSEL_INTERVAL_MS);
       }
 
       let touchStartX = 0;
@@ -763,7 +783,7 @@
       updateCarousel();
       setTimeout(() => {
         startAutoScroll();
-      }, 2000);
+      }, CAROUSEL_INTERVAL_MS);
 
       const hamburger = document.getElementById("hamburger");
       const navLinks = document.getElementById("navLinks");
