@@ -15,10 +15,11 @@
         --primary: #2563eb;
         --secondary: #1e40af;
         --accent: #2563eb;
-        --light: #f8f9fa;
-        --border: #e1e4e8;
-        --text-primary: #2d3748;
-        --text-secondary: #4a5568;
+        --bg-dark: #000000;
+        --bg-card: #1a1a1a;
+        --border: #2a2a2a;
+        --text-primary: #ffffff;
+        --text-secondary: #a0a0a0;
         --gradient: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
       }
 
@@ -32,7 +33,7 @@
         font-family: "DM Sans", sans-serif;
         line-height: 1.7;
         color: var(--text-primary);
-        background: var(--light);
+        background: var(--bg-dark);
         overflow-x: hidden;
       }
 
@@ -67,7 +68,7 @@
       }
 
       header {
-        background: white;
+        background: var(--bg-dark);
         border-bottom: 3px solid var(--accent);
         padding: 48px 0 40px;
         margin-bottom: 64px;
@@ -100,12 +101,24 @@
         }
       }
 
+      .header-logo-container {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 8px;
+      }
+      .header-logo {
+        width: 48px;
+        height: 48px;
+        border-radius: 8px;
+        object-fit: contain;
+      }
       .app-name {
         font-family: "Crimson Pro", serif;
         font-size: 2.5rem;
         font-weight: 700;
-        color: var(--primary);
-        margin-bottom: 8px;
+        color: var(--text-secondary);
+        margin-bottom: 0;
         letter-spacing: -0.02em;
         animation: slideDown 0.6s ease-out;
       }
@@ -125,7 +138,7 @@
         font-family: "Crimson Pro", serif;
         font-size: 3.5rem;
         font-weight: 700;
-        color: var(--primary);
+        color: var(--text-primary);
         margin-bottom: 16px;
         line-height: 1.1;
         letter-spacing: -0.03em;
@@ -140,12 +153,12 @@
       }
 
       .intro {
-        background: white;
+        background: var(--bg-card);
         padding: 40px;
         border-radius: 12px;
         margin-bottom: 48px;
         border-left: 4px solid var(--accent);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         animation: fadeIn 1s ease-out 0.3s backwards;
       }
 
@@ -167,14 +180,15 @@
       }
 
       .section {
-        background: white;
+        background: var(--bg-card);
         padding: 48px 40px;
         border-radius: 12px;
         margin-bottom: 32px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         position: relative;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         animation: fadeInUp 0.8s ease-out backwards;
+        border: 1px solid var(--border);
       }
 
       .section:nth-child(1) {
@@ -215,7 +229,8 @@
 
       .section:hover {
         transform: translateY(-4px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 8px 24px rgba(37, 99, 235, 0.2);
+        border-color: var(--primary);
       }
 
       .section::before {
@@ -237,7 +252,7 @@
         font-family: "Crimson Pro", serif;
         font-size: 2rem;
         font-weight: 700;
-        color: var(--primary);
+        color: var(--text-primary);
         margin-bottom: 24px;
         letter-spacing: -0.02em;
       }
@@ -278,11 +293,12 @@
       }
 
       footer {
-        background: var(--primary);
+        background: var(--bg-card);
         color: white;
         padding: 56px 0;
         margin-top: 80px;
         text-align: center;
+        border-top: 1px solid var(--border);
       }
 
       .footer-content {
@@ -312,11 +328,18 @@
         color: white;
       }
 
+      .footer-tagline {
+        font-size: 0.95rem;
+        opacity: 0.8;
+        margin-top: 4px;
+        color: white;
+      }
+
       .copyright {
         font-size: 0.9rem;
         opacity: 0.7;
         margin-top: 24px;
-        color: white;
+        color: #666;
       }
 
       @media (max-width: 768px) {
@@ -351,8 +374,8 @@
       .highlight {
         background: linear-gradient(
           120deg,
-          rgba(37, 99, 235, 0.1) 0%,
-          rgba(37, 99, 235, 0.05) 100%
+          rgba(37, 99, 235, 0.2) 0%,
+          rgba(37, 99, 235, 0.1) 100%
         );
         padding: 2px 6px;
         border-radius: 4px;
@@ -364,7 +387,10 @@
 
     <header>
       <div class="container">
-        <div class="app-name">TopCheese</div>
+        <div class="header-logo-container">
+          <img class="header-logo" src="assets/topcheese-app-icon-transparent.png" alt="TopCheese" width="48" height="48" decoding="async">
+          <div class="app-name">TopCheese</div>
+        </div>
         <h1 class="page-title">Privacy Policy</h1>
         <p class="last-updated">Last updated: February 2026</p>
       </div>
@@ -514,9 +540,8 @@
         <div class="contact-email">
           <a href="mailto:support@topcheeseapp.com">support@topcheeseapp.com</a>
         </div>
-        <p class="footer-note">
-          TopCheese - When the puck heats up, you'll know first.
-        </p>
+        <p class="footer-note">TopCheese</p>
+        <p class="footer-tagline">When the puck heats up, you'll know first.</p>
         <p class="copyright">© 2025 TopCheese. All rights reserved.</p>
       </div>
     </footer>
