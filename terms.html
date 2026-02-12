@@ -108,6 +108,31 @@
         gap: 12px;
         margin-bottom: 8px;
       }
+      .header-logo-link {
+        display: inline-block;
+        text-decoration: none;
+        cursor: pointer;
+        outline: none;
+        color: inherit;
+        border: none;
+      }
+      .header-logo-link:link,
+      .header-logo-link:visited,
+      .header-logo-link:hover,
+      .header-logo-link:focus,
+      .header-logo-link:active {
+        text-decoration: none !important;
+        color: inherit !important;
+        border: none !important;
+        border-bottom: none !important;
+      }
+      .header-logo-link:hover {
+        opacity: 0.9;
+      }
+      .header-logo-link .header-logo {
+        display: block;
+        border: none;
+      }
       .header-logo {
         width: 48px;
         height: 48px;
@@ -383,14 +408,16 @@
     <header>
       <div class="container">
         <div class="header-logo-container">
-          <img
-            class="header-logo"
-            src="assets/topcheese-app-icon-transparent.png"
-            alt="TopCheese"
-            width="48"
-            height="48"
-            decoding="async"
-          />
+          <a href="index.html" class="header-logo-link">
+            <img
+              class="header-logo"
+              src="assets/topcheese-app-icon-transparent.png"
+              alt="TopCheese"
+              width="48"
+              height="48"
+              decoding="async"
+            />
+          </a>
           <div class="app-name">TopCheese</div>
         </div>
         <h1 class="page-title">Terms of Service</h1>
