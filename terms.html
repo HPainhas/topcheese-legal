@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -45,7 +45,8 @@
         height: 100%;
         z-index: -1;
         opacity: 0.03;
-        background-image: repeating-linear-gradient(
+        background-image:
+          repeating-linear-gradient(
             45deg,
             transparent,
             transparent 35px,
@@ -117,7 +118,7 @@
         font-family: "Crimson Pro", serif;
         font-size: 2.5rem;
         font-weight: 700;
-        color: var(--text-secondary);
+        color: var(--text-primary);
         margin-bottom: 0;
         letter-spacing: -0.02em;
         animation: slideDown 0.6s ease-out;
@@ -186,7 +187,9 @@
         margin-bottom: 32px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         position: relative;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
         animation: fadeInUp 0.8s ease-out backwards;
         border: 1px solid var(--border);
       }
@@ -205,9 +208,6 @@
       }
       .section:nth-child(5) {
         animation-delay: 0.8s;
-      }
-      .section:nth-child(6) {
-        animation-delay: 0.9s;
       }
 
       @keyframes fadeInUp {
@@ -300,19 +300,20 @@
       }
 
       .contact-email {
-        font-size: 1.4rem;
-        font-weight: 600;
+        font-size: 0.95rem;
+        font-weight: 400;
         margin-bottom: 16px;
-        font-family: "Crimson Pro", serif;
+        font-family: "DM Sans", sans-serif;
       }
 
       .contact-email a {
-        color: white;
-        border-bottom-color: rgba(255, 255, 255, 0.3);
+        color: #888;
+        border-bottom-color: transparent;
       }
 
       .contact-email a:hover {
-        border-bottom-color: white;
+        color: white;
+        border-bottom-color: rgba(255, 255, 255, 0.3);
       }
 
       .footer-note {
@@ -382,7 +383,14 @@
     <header>
       <div class="container">
         <div class="header-logo-container">
-          <img class="header-logo" src="assets/topcheese-app-icon-transparent.png" alt="TopCheese" width="48" height="48" decoding="async">
+          <img
+            class="header-logo"
+            src="assets/topcheese-app-icon-transparent.png"
+            alt="TopCheese"
+            width="48"
+            height="48"
+            decoding="async"
+          />
           <div class="app-name">TopCheese</div>
         </div>
         <h1 class="page-title">Terms of Service</h1>
@@ -402,9 +410,9 @@
         <h2>What TopCheese does</h2>
         <ul>
           <li>
-            TopCheese is a <strong>sports and stats app</strong> that shows NHL
-            shots on goal and related information (e.g. shots since last goal,
-            heat indicators). It is for
+            TopCheese is a free <strong>sports and stats app</strong> that shows
+            NHL shots on goal and related information (e.g. shots since last
+            goal, heat indicators). It is for
             <strong>informational and entertainment purposes only</strong>.
           </li>
           <li>
@@ -438,30 +446,8 @@
             third-party systems.
           </li>
           <li>
-            You are responsible for how you use the app and any device or
-            account you use to access it.
-          </li>
-        </ul>
-      </div>
-
-      <div class="section">
-        <h2>Payments and subscriptions</h2>
-        <ul>
-          <li>
-            <strong>Payments are handled entirely by Apple.</strong> When you
-            subscribe in the app, you pay through your Apple ID and Apple's
-            payment system. Apple's terms and conditions apply to all purchases.
-          </li>
-          <li>
-            <strong>Refunds</strong> are governed by
-            <span class="highlight">Apple's refund policy</span>. We cannot
-            issue refunds ourselves; any refund requests must be made through
-            Apple (e.g. via Report a Problem or Apple Support).
-          </li>
-          <li>
-            Subscription terms (e.g. monthly or annual, renewal, cancellation)
-            are shown in the app and in Apple's subscription management. By
-            subscribing, you agree to those terms.
+            You are responsible for how you use the app and any device you use
+            to access it.
           </li>
         </ul>
       </div>
@@ -470,9 +456,9 @@
         <h2>Termination and changes</h2>
         <ul>
           <li>
-            We may <strong>suspend or end</strong> your access to the app or to
-            premium features if we believe you have breached these terms or
-            misused the app. We will do so in a reasonable way where possible.
+            We may <strong>suspend or end</strong> your access to the app if we
+            believe you have breached these terms or misused the app. We will do
+            so in a reasonable way where possible.
           </li>
           <li>
             We may <strong>change these terms</strong> over time. We will post
@@ -506,7 +492,8 @@
         <h2>Contact</h2>
         <p>
           For questions about these terms:
-          <a href="mailto:support@topcheeseapp.com">support@topcheeseapp.com</a>
+          <a href="mailto:support@topcheeseapp.com">support@topcheeseapp.com</a
+          >.
         </p>
       </div>
     </main>
