@@ -159,6 +159,15 @@
         background: var(--bg-card);
         animation: fadeInUp 1.2s ease-out;
       }
+      @media (max-width: 375px) {
+        .cta-text {
+          padding: 14px 20px;
+          font-size: 0.95rem;
+          max-width: calc(100% - 16px);
+          box-sizing: border-box;
+          text-align: center;
+        }
+      }
       @keyframes fadeInUp {
         from {
           opacity: 0;
