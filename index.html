@@ -56,6 +56,12 @@
         display: flex;
         align-items: center;
         gap: 12px;
+        color: inherit;
+        text-decoration: none;
+      }
+      .logo-container:hover {
+        color: inherit;
+        text-decoration: none;
       }
       .logo-image {
         width: 36px;
@@ -506,7 +512,7 @@
   <body>
     <nav>
       <div class="nav-container">
-        <div class="logo-container">
+        <a href="#" class="logo-container" aria-label="TopCheese home">
           <img
             class="logo-image"
             src="assets/topcheese-app-icon-transparent.png"
@@ -516,7 +522,7 @@
             decoding="async"
           />
           <div class="logo">TopCheese</div>
-        </div>
+        </a>
         <div class="hamburger" id="hamburger">
           <span></span>
           <span></span>
