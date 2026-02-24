@@ -342,6 +342,9 @@
         padding: 0;
         overflow: hidden;
       }
+      .hero + .screenshots {
+        margin-top: 80px;
+      }
       .screenshots h2 {
         font-size: 3rem;
         text-align: center;
@@ -589,15 +592,13 @@
       </p>
       <span class="cta-text">Coming Soon to the App Store</span>
     </section>
-    <div class="app-preview">
-      <img
-        class="hero-screenshot"
-        src="assets/topcheese-live-games.PNG"
-        alt="TopCheese Live Games"
-        fetchpriority="high"
-        decoding="async"
-      />
-    </div>
+    <section class="screenshots">
+      <h2>See it in action</h2>
+      <div class="carousel-container">
+        <div class="carousel-track" id="carouselTrack"></div>
+        <div class="carousel-indicators" id="indicators"></div>
+      </div>
+    </section>
     <section class="features" id="features">
       <h2>Everything you need</h2>
       <div class="feature-grid">
@@ -750,13 +751,6 @@
             fast.
           </p>
         </div>
-      </div>
-    </section>
-    <section class="screenshots">
-      <h2>See it in action</h2>
-      <div class="carousel-container">
-        <div class="carousel-track" id="carouselTrack"></div>
-        <div class="carousel-indicators" id="indicators"></div>
       </div>
     </section>
     <section class="about" id="about">
