@@ -303,6 +303,35 @@
         font-size: 1rem;
         line-height: 1.6;
       }
+      .about {
+        max-width: 720px;
+        margin: 80px auto 120px;
+        padding: 0 24px;
+        text-align: center;
+      }
+      .about h2 {
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 60px;
+        font-weight: 700;
+        letter-spacing: -1.5px;
+      }
+      .about h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-top: 32px;
+        margin-bottom: 12px;
+      }
+      .about p {
+        color: var(--text-secondary);
+        font-size: 1.125rem;
+        line-height: 1.7;
+        margin-bottom: 20px;
+      }
+      .about p:last-child {
+        margin-bottom: 0;
+      }
       .screenshots {
         max-width: 100%;
         margin: 120px auto;
@@ -481,6 +510,7 @@
           font-size: 1.2rem;
         }
         .features h2,
+        .about h2,
         .screenshots h2 {
           font-size: 2rem;
         }
@@ -528,7 +558,9 @@
             height="36"
             decoding="async"
           />
-          <div class="logo">TopCheese<sup class="logo-tm" aria-hidden="true">™</sup></div>
+          <div class="logo">
+            TopCheese<sup class="logo-tm" aria-hidden="true">™</sup>
+          </div>
         </a>
         <div class="hamburger" id="hamburger">
           <span></span>
@@ -537,6 +569,7 @@
         </div>
         <div class="nav-links" id="navLinks">
           <a href="#features">Features</a>
+          <a href="#about">About</a>
           <a href="/privacy">Privacy</a>
           <a href="/terms">Terms</a>
           <a href="mailto:support@topcheeseapp.com">Contact</a>
@@ -721,6 +754,28 @@
         <div class="carousel-track" id="carouselTrack"></div>
         <div class="carousel-indicators" id="indicators"></div>
       </div>
+    </section>
+    <section class="about" id="about">
+      <h2>About</h2>
+      <p>
+        TopCheese was built to make hockey stats feel alive. Instead of drowning
+        fans in numbers, it presents real-time momentum, player heat levels, and
+        scoring threats instantly and clearly. As both a hockey fan and a
+        developer, I wanted better live stats at my fingertips—so I built
+        TopCheese to do exactly that.
+      </p>
+      <p>
+        The idea is simple: surface the stats that matter most in a visual,
+        intuitive way—showing who's shooting, who's heating up, and who might
+        score next—so you never miss the momentum building toward the next goal.
+      </p>
+      <h3>What does "top cheese" mean?</h3>
+      <p>
+        "Top cheese" is hockey slang for shooting the puck into the top shelf of
+        the net, usually just under the bar. It refers to scoring in the high,
+        difficult-to-reach areas, often described as where "mom hides the
+        cookies."
+      </p>
     </section>
     <footer>
       <div class="footer-content">
