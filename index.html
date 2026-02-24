@@ -154,7 +154,8 @@
         }
       }
       .app-preview {
-        max-width: 1000px;
+        width: fit-content;
+        max-width: min(1000px, 100%);
         margin: 80px auto 0;
         padding: 0 24px;
         animation: fadeIn 1.4s ease-out;
@@ -162,14 +163,16 @@
       .app-preview .hero-screenshot {
         width: 100%;
         height: auto;
+        max-height: 70vh;
+        object-fit: contain;
         display: block;
-        margin: 0 auto;
         border-radius: 40px;
         border: 1px solid var(--border);
       }
       @media (min-width: 768px) {
         .app-preview .hero-screenshot {
           max-width: 420px;
+          max-height: 80vh;
         }
       }
       @keyframes fadeIn {
