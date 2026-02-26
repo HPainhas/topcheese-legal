@@ -125,7 +125,7 @@
       }
 
       .hero {
-        padding: 140px 24px 80px;
+        padding: 140px 24px 40px;
         text-align: center;
         background: radial-gradient(
           ellipse at top,
@@ -133,11 +133,14 @@
           transparent 60%
         );
       }
+      /* 1. Tighter headline line-height for more intentional feel */
       .hero h1 {
         font-size: 4rem;
         font-weight: 700;
         letter-spacing: -2px;
-        margin-bottom: 24px;
+        line-height: 1.05;
+        max-width: 700px;
+        margin: 0 auto 24px;
         background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
         background-clip: text;
         -webkit-background-clip: text;
@@ -147,50 +150,41 @@
       .hero p {
         font-size: 1.5rem;
         color: var(--text-secondary);
-        margin-bottom: 40px;
+        margin-bottom: 48px;
         animation: fadeInUp 1s ease-out;
       }
+      /* 4. Badge typography — refined sizing and letter spacing */
       .hero-free-badge {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         gap: 8px;
         color: #3b82f6;
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         font-weight: 700;
+        letter-spacing: 0.5px;
         padding: 10px 20px;
         border-radius: 999px;
         background: rgba(59, 130, 246, 0.12);
         border: 1px solid rgba(59, 130, 246, 0.35);
-        margin-bottom: 32px;
+        margin-bottom: 40px;
         animation: fadeInUp 1s ease-out;
         text-align: center;
       }
       .cta-text {
         display: inline-block;
-        color: var(--text-secondary);
-        padding: 16px 48px;
-        border-radius: 12px;
-        font-size: 1.1rem;
-        border: 1px solid var(--border);
-        background: var(--bg-card);
+        color: #888;
+        font-size: 0.8rem;
+        font-weight: 600;
+        padding: 0 20px;
+        margin-top: 12px;
         animation: fadeInUp 1.2s ease-out;
-      }
-      @media (max-width: 376px) {
-        .cta-text {
-          padding: 14px 20px;
-          font-size: 0.95rem;
-          max-width: calc(100% - 16px);
-          box-sizing: border-box;
-          text-align: center;
-        }
       }
       .waitlist-form {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 12px;
-        margin-top: 24px;
         animation: fadeInUp 1.4s ease-out;
       }
       .waitlist-honeypot {
@@ -206,20 +200,25 @@
         padding: 14px 20px;
         border-radius: 12px;
         border: 1px solid var(--border);
-        background: var(--bg-card);
-        color: var(--text-primary);
+        background: #222;
+        /* 2. Full white typed text for better contrast */
+        color: #fff;
         font-size: 1rem;
         font-family: inherit;
-        width: 280px;
+        width: 340px;
         outline: none;
-        transition: border-color 0.2s;
+        transition: border-color 0.2s, box-shadow 0.2s;
       }
+      /* 2. Semi-transparent placeholder for subtle hierarchy */
       .waitlist-input::placeholder {
-        color: var(--text-secondary);
+        color: rgba(255, 255, 255, 0.45);
       }
+      /* 5. Premium focus ring — accessible blue glow, no default outline */
       .waitlist-input:focus {
         border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
       }
+      /* 3. CTA button with subtle resting glow for depth */
       .waitlist-btn {
         padding: 14px 28px;
         border-radius: 12px;
@@ -230,11 +229,17 @@
         font-weight: 600;
         font-family: inherit;
         cursor: pointer;
-        transition: background 0.2s, transform 0.1s;
+        box-shadow: 0 2px 12px rgba(59, 130, 246, 0.3);
+        transition:
+          background 0.2s,
+          transform 0.1s,
+          box-shadow 0.2s;
         white-space: nowrap;
       }
       .waitlist-btn:hover {
         background: #2563eb;
+        box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+        transform: translateY(-1px);
       }
       .waitlist-btn:active {
         transform: scale(0.97);
@@ -246,7 +251,7 @@
       .waitlist-message {
         margin-top: 16px;
         font-size: 0.95rem;
-        min-height: 1.4em;
+        min-height: 0;
         animation: fadeInUp 0.4s ease-out;
       }
       .waitlist-message.success {
@@ -677,16 +682,35 @@
       <div class="hero-free-badge">Free for the 2025-26 NHL season</div>
       <h1>When the Puck Heats Up, You'll Know First</h1>
       <p>
-        Real-time SOG tracking, heat indicators, game previews, and more — in
+        Live shot tracking, player heat levels, and real-time momentum — all in
         one app.
       </p>
-      <span class="cta-text">Coming Soon to the App Store</span>
-      <form id="waitlistForm" class="waitlist-form" action="https://formspree.io/f/mjgelypv" method="POST">
-        <input type="text" name="_gotcha" class="waitlist-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <input type="email" name="email" class="waitlist-input" placeholder="Enter your email" required autocomplete="off">
+      <form
+        id="waitlistForm"
+        class="waitlist-form"
+        action="https://formspree.io/f/mjgelypv"
+        method="POST"
+      >
+        <input
+          type="text"
+          name="_gotcha"
+          class="waitlist-honeypot"
+          tabindex="-1"
+          autocomplete="off"
+          aria-hidden="true"
+        />
+        <input
+          type="email"
+          name="email"
+          class="waitlist-input"
+          placeholder="Enter your email"
+          required
+          autocomplete="off"
+        />
         <button type="submit" class="waitlist-btn">Get Early Access</button>
       </form>
       <p id="waitlistMessage" class="waitlist-message"></p>
+      <span class="cta-text"><em>Coming Soon to the App Store</em></span>
     </section>
     <section class="screenshots">
       <h2>See it in action</h2>
@@ -1082,13 +1106,20 @@
         try {
           const response = await fetch(waitlistForm.action, {
             method: "POST",
-            headers: { "Accept": "application/json", "Content-Type": "application/json" },
-            body: JSON.stringify({ email: email, _gotcha: waitlistForm.querySelector("[name='_gotcha']").value }),
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: email,
+              _gotcha: waitlistForm.querySelector("[name='_gotcha']").value,
+            }),
           });
 
           if (response.ok) {
             waitlistForm.style.display = "none";
-            waitlistMessage.textContent = "You're in. You'll be first to know when we go live.";
+            waitlistMessage.textContent =
+              "You're in! You'll be first to know when we go live.";
             waitlistMessage.className = "waitlist-message success";
           } else {
             throw new Error();
@@ -1096,7 +1127,8 @@
         } catch {
           btn.disabled = false;
           btn.textContent = "Get Early Access";
-          waitlistMessage.textContent = "Something went wrong. Please try again.";
+          waitlistMessage.textContent =
+            "Something went wrong. Please try again.";
           waitlistMessage.className = "waitlist-message error";
         }
       });
