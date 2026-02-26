@@ -681,10 +681,20 @@
           opacity: 0;
         }
         .carousel-container {
-          padding-bottom: 24px;
+          padding: 24px 0 24px;
         }
         .carousel-indicators {
           margin-top: 8px;
+        }
+        .screenshots h2 {
+          margin-bottom: 24px;
+        }
+        .cta-text.cta-text-hidden {
+          display: none !important;
+        }
+        footer {
+          padding: 32px 24px 24px;
+          margin-top: 60px;
         }
       }
       @media (max-width: 376px) {
@@ -761,7 +771,7 @@
             <button type="submit" class="waitlist-btn">Get Early Access</button>
           </form>
           <p id="waitlistMessage" class="waitlist-message"></p>
-          <span class="cta-text"><em>Coming Soon to the App Store</em></span>
+          <span class="cta-text" id="ctaText"><em>Coming Soon to the App Store</em></span>
         </div>
         <div class="hero-phone">
           <img src="assets/topcheese-live-games.PNG" alt="TopCheese Live Games" width="300" height="650" />
@@ -1178,6 +1188,8 @@
             waitlistMessage.innerHTML =
               "You\u2019re in!<br class=\"mobile-break\"> You\u2019ll be first to know when we go live.";
             waitlistMessage.className = "waitlist-message success";
+            const ctaText = document.getElementById("ctaText");
+            if (ctaText) ctaText.classList.add("cta-text-hidden");
           } else {
             throw new Error();
           }
