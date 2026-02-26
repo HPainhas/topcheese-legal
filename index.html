@@ -260,7 +260,13 @@
       .waitlist-message.error {
         color: #f87171;
       }
+      .mobile-break {
+        display: none;
+      }
       @media (max-width: 768px) {
+        .mobile-break {
+          display: block;
+        }
         .waitlist-form {
           flex-direction: column;
           padding: 0 24px;
@@ -1118,8 +1124,8 @@
 
           if (response.ok) {
             waitlistForm.style.display = "none";
-            waitlistMessage.textContent =
-              "You're in! You'll be first to know when we go live.";
+            waitlistMessage.innerHTML =
+              "You\u2019re in!<br class=\"mobile-break\"> You\u2019ll be first to know when we go live.";
             waitlistMessage.className = "waitlist-message success";
           } else {
             throw new Error();
