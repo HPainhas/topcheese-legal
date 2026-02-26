@@ -158,8 +158,13 @@
         display: block;
       }
       @keyframes float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-12px); }
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-12px);
+        }
       }
       /* 1. Tighter headline line-height for more intentional feel */
       .hero h1 {
@@ -235,7 +240,9 @@
         font-family: inherit;
         width: 340px;
         outline: none;
-        transition: border-color 0.2s, box-shadow 0.2s;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
       }
       /* 2. Semi-transparent placeholder for subtle hierarchy */
       .waitlist-input::placeholder {
@@ -743,8 +750,8 @@
           <div class="hero-free-badge">Free for the 2025-26 NHL season</div>
           <h1>When the Puck Heats Up, You'll Know First</h1>
           <p>
-            Live shot tracking, player heat levels, and real-time momentum — all in
-            one app.
+            Live shot tracking, player heat levels, and real-time momentum — all
+            in one app.
           </p>
           <form
             id="waitlistForm"
@@ -771,10 +778,17 @@
             <button type="submit" class="waitlist-btn">Get Early Access</button>
           </form>
           <p id="waitlistMessage" class="waitlist-message"></p>
-          <span class="cta-text" id="ctaText"><em>Coming Soon to the App Store</em></span>
+          <span class="cta-text" id="ctaText"
+            ><em>Coming Soon to the App Store</em></span
+          >
         </div>
         <div class="hero-phone">
-          <img src="assets/topcheese-live-games.PNG" alt="TopCheese Live Games" width="300" height="650" />
+          <img
+            src="assets/topcheese-live-games.PNG"
+            alt="TopCheese Live Games"
+            width="300"
+            height="650"
+          />
         </div>
       </div>
     </section>
@@ -970,7 +984,6 @@
     </footer>
     <script>
       const items = [
-        { text: "Live Games", image: "assets/topcheese-live-games.PNG" },
         {
           text: "Next Goal Prediction",
           image: "assets/topcheese-next-goal-prediction.PNG",
@@ -978,23 +991,9 @@
         { text: "Player Stats", image: "assets/topcheese-sslg-feature.PNG" },
         { text: "Most SOG", image: "assets/topcheese-most-sog-section.PNG" },
         {
-          text: "Game Summary",
-          image: "assets/topcheese-game-summary.PNG",
-        },
-        {
           text: "Upcoming Games",
           image: "assets/topcheese-tomorrow-game-slate.PNG",
         },
-        {
-          text: "Game Preview",
-          image: "assets/topcheese-game-preview-goalies.PNG",
-        },
-        {
-          text: "Player Recent Performance Preview",
-          image: "assets/topcheese-player-recent-performance.PNG",
-        },
-        { text: "Team Standings", image: "assets/topcheese-standings.PNG" },
-        { text: "Team Logos", image: "assets/topcheese-team-logos-guide.PNG" },
       ];
       const CAROUSEL_INTERVAL_MS = 5000;
       const track = document.getElementById("carouselTrack");
@@ -1186,7 +1185,7 @@
           if (response.ok) {
             waitlistForm.style.display = "none";
             waitlistMessage.innerHTML =
-              "You\u2019re in!<br class=\"mobile-break\"> You\u2019ll be first to know when we go live.";
+              'You\u2019re in!<br class="mobile-break"> You\u2019ll be first to know when we go live.';
             waitlistMessage.className = "waitlist-message success";
             const ctaText = document.getElementById("ctaText");
             if (ctaText) ctaText.classList.add("cta-text-hidden");
