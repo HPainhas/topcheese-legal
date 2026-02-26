@@ -126,12 +126,40 @@
 
       .hero {
         padding: 140px 24px 40px;
-        text-align: center;
         background: radial-gradient(
           ellipse at top,
           rgba(37, 99, 235, 0.15),
           transparent 60%
         );
+      }
+      .hero-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 60px;
+      }
+      .hero-text {
+        flex: 1;
+        text-align: left;
+      }
+      .hero-phone {
+        flex-shrink: 0;
+        width: 300px;
+        animation: float 4s ease-in-out infinite;
+      }
+      .hero-phone img {
+        width: 100%;
+        height: auto;
+        border-radius: 40px;
+        border: 1px solid var(--primary);
+        box-shadow: 0 25px 80px rgba(37, 99, 235, 0.3);
+        display: block;
+      }
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-12px); }
       }
       /* 1. Tighter headline line-height for more intentional feel */
       .hero h1 {
@@ -140,7 +168,7 @@
         letter-spacing: -2px;
         line-height: 1.05;
         max-width: 700px;
-        margin: 0 auto 24px;
+        margin: 0 0 24px;
         background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
         background-clip: text;
         -webkit-background-clip: text;
@@ -172,7 +200,7 @@
         text-align: center;
       }
       .cta-text {
-        display: inline-block;
+        display: none;
         color: #888;
         font-size: 0.8rem;
         font-weight: 600;
@@ -183,7 +211,7 @@
       .waitlist-form {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         gap: 12px;
         animation: fadeInUp 1.4s ease-out;
       }
@@ -269,6 +297,7 @@
         }
         .waitlist-form {
           flex-direction: column;
+          justify-content: center;
           padding: 0 24px;
         }
         .waitlist-input {
@@ -605,8 +634,22 @@
           width: 100%;
           padding: 12px 0;
         }
+        .hero-content {
+          flex-direction: column-reverse;
+          gap: 40px;
+        }
+        .hero-text {
+          text-align: center;
+        }
+        .cta-text {
+          display: inline-block;
+        }
+        .hero-phone {
+          width: 220px;
+        }
         .hero h1 {
           font-size: 2.5rem;
+          max-width: none;
         }
         .hero p {
           font-size: 1.2rem;
@@ -685,38 +728,45 @@
       </div>
     </nav>
     <section class="hero">
-      <div class="hero-free-badge">Free for the 2025-26 NHL season</div>
-      <h1>When the Puck Heats Up, You'll Know First</h1>
-      <p>
-        Live shot tracking, player heat levels, and real-time momentum — all in
-        one app.
-      </p>
-      <form
-        id="waitlistForm"
-        class="waitlist-form"
-        action="https://formspree.io/f/mjgelypv"
-        method="POST"
-      >
-        <input
-          type="text"
-          name="_gotcha"
-          class="waitlist-honeypot"
-          tabindex="-1"
-          autocomplete="off"
-          aria-hidden="true"
-        />
-        <input
-          type="email"
-          name="email"
-          class="waitlist-input"
-          placeholder="Enter your email"
-          required
-          autocomplete="off"
-        />
-        <button type="submit" class="waitlist-btn">Get Early Access</button>
-      </form>
-      <p id="waitlistMessage" class="waitlist-message"></p>
-      <span class="cta-text"><em>Coming Soon to the App Store</em></span>
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-free-badge">Free for the 2025-26 NHL season</div>
+          <h1>When the Puck Heats Up, You'll Know First</h1>
+          <p>
+            Live shot tracking, player heat levels, and real-time momentum — all in
+            one app.
+          </p>
+          <form
+            id="waitlistForm"
+            class="waitlist-form"
+            action="https://formspree.io/f/mjgelypv"
+            method="POST"
+          >
+            <input
+              type="text"
+              name="_gotcha"
+              class="waitlist-honeypot"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            />
+            <input
+              type="email"
+              name="email"
+              class="waitlist-input"
+              placeholder="Enter your email"
+              required
+              autocomplete="off"
+            />
+            <button type="submit" class="waitlist-btn">Get Early Access</button>
+          </form>
+          <p id="waitlistMessage" class="waitlist-message"></p>
+          <span class="cta-text"><em>Coming Soon to the App Store</em></span>
+        </div>
+        <div class="hero-phone">
+          <img src="assets/topcheese-live-games.PNG" alt="TopCheese Live Games" width="300" height="650" />
+        </div>
+      </div>
     </section>
     <section class="screenshots">
       <h2>See it in action</h2>
