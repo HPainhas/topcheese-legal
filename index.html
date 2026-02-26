@@ -185,6 +185,90 @@
           text-align: center;
         }
       }
+      .waitlist-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 24px;
+        animation: fadeInUp 1.4s ease-out;
+      }
+      .waitlist-honeypot {
+        position: absolute;
+        left: -9999px;
+        opacity: 0;
+        height: 0;
+        width: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      .waitlist-input {
+        padding: 14px 20px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: var(--bg-card);
+        color: var(--text-primary);
+        font-size: 1rem;
+        font-family: inherit;
+        width: 280px;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .waitlist-input::placeholder {
+        color: var(--text-secondary);
+      }
+      .waitlist-input:focus {
+        border-color: var(--primary);
+      }
+      .waitlist-btn {
+        padding: 14px 28px;
+        border-radius: 12px;
+        border: none;
+        background: #3b82f6;
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 600;
+        font-family: inherit;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.1s;
+        white-space: nowrap;
+      }
+      .waitlist-btn:hover {
+        background: #2563eb;
+      }
+      .waitlist-btn:active {
+        transform: scale(0.97);
+      }
+      .waitlist-btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+      .waitlist-message {
+        margin-top: 16px;
+        font-size: 0.95rem;
+        min-height: 1.4em;
+        animation: fadeInUp 0.4s ease-out;
+      }
+      .waitlist-message.success {
+        color: #34d399;
+      }
+      .waitlist-message.error {
+        color: #f87171;
+      }
+      @media (max-width: 768px) {
+        .waitlist-form {
+          flex-direction: column;
+          padding: 0 24px;
+        }
+        .waitlist-input {
+          width: 100%;
+          max-width: 340px;
+        }
+        .waitlist-btn {
+          width: 100%;
+          max-width: 340px;
+        }
+      }
       @keyframes fadeInUp {
         from {
           opacity: 0;
@@ -597,6 +681,12 @@
         one app.
       </p>
       <span class="cta-text">Coming Soon to the App Store</span>
+      <form id="waitlistForm" class="waitlist-form" action="https://formspree.io/f/mjgelypv" method="POST">
+        <input type="text" name="_gotcha" class="waitlist-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="email" name="email" class="waitlist-input" placeholder="Enter your email" required autocomplete="off">
+        <button type="submit" class="waitlist-btn">Get Early Access</button>
+      </form>
+      <p id="waitlistMessage" class="waitlist-message"></p>
     </section>
     <section class="screenshots">
       <h2>See it in action</h2>
@@ -966,6 +1056,48 @@
         if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
           hamburger.classList.remove("active");
           navLinks.classList.remove("active");
+        }
+      });
+
+      const waitlistForm = document.getElementById("waitlistForm");
+      const waitlistMessage = document.getElementById("waitlistMessage");
+
+      waitlistForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const btn = waitlistForm.querySelector(".waitlist-btn");
+        const emailInput = waitlistForm.querySelector(".waitlist-input");
+        const email = emailInput.value.trim();
+
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          waitlistMessage.textContent = "Please enter a valid email address.";
+          waitlistMessage.className = "waitlist-message error";
+          return;
+        }
+
+        btn.disabled = true;
+        btn.textContent = "Joining...";
+        waitlistMessage.textContent = "";
+        waitlistMessage.className = "waitlist-message";
+
+        try {
+          const response = await fetch(waitlistForm.action, {
+            method: "POST",
+            headers: { "Accept": "application/json", "Content-Type": "application/json" },
+            body: JSON.stringify({ email: email, _gotcha: waitlistForm.querySelector("[name='_gotcha']").value }),
+          });
+
+          if (response.ok) {
+            waitlistForm.style.display = "none";
+            waitlistMessage.textContent = "You're in. You'll be first to know when we go live.";
+            waitlistMessage.className = "waitlist-message success";
+          } else {
+            throw new Error();
+          }
+        } catch {
+          btn.disabled = false;
+          btn.textContent = "Get Early Access";
+          waitlistMessage.textContent = "Something went wrong. Please try again.";
+          waitlistMessage.className = "waitlist-message error";
         }
       });
     </script>
