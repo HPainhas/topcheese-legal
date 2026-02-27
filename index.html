@@ -8,7 +8,6 @@
       href="assets/topcheese-app-icon-transparent.png"
       type="image/png"
     />
-    <link rel="preload" as="image" href="assets/topcheese-live-games.PNG" />
     <title>TopCheese</title>
     <style>
       * {
@@ -144,18 +143,31 @@
         flex: 1;
         text-align: left;
       }
-      .hero-phone {
+      .hero-carousel {
         flex-shrink: 0;
-        width: 300px;
+        width: 320px;
         animation: float 4s ease-in-out infinite;
+        overflow-x: hidden;
       }
-      .hero-phone img {
-        width: 100%;
-        height: auto;
-        border-radius: 40px;
-        border: 1px solid var(--primary);
-        box-shadow: 0 25px 80px rgba(37, 99, 235, 0.3);
-        display: block;
+      .hero-carousel .carousel-container {
+        padding: 0;
+        overflow: visible;
+      }
+      .hero-carousel .carousel-track {
+        height: 700px;
+        overflow: visible;
+      }
+      .hero-carousel .carousel-indicators {
+        margin-top: 20px;
+        position: relative;
+        z-index: 20;
+        flex-shrink: 0;
+      }
+      .hero-carousel .indicator {
+        background: rgba(255, 255, 255, 0.35);
+      }
+      .hero-carousel .indicator.active {
+        background: var(--primary);
       }
       @keyframes float {
         0%,
@@ -326,37 +338,6 @@
           transform: translateY(0);
         }
       }
-      .app-preview {
-        width: fit-content;
-        max-width: min(1000px, 100%);
-        margin: 80px auto 0;
-        padding: 0 24px;
-        animation: fadeIn 1.4s ease-out;
-      }
-      .app-preview .hero-screenshot {
-        width: 100%;
-        height: auto;
-        max-height: 70vh;
-        object-fit: contain;
-        display: block;
-        border-radius: 40px;
-        border: 1px solid var(--primary);
-        box-shadow: 0 25px 80px rgba(37, 99, 235, 0.3);
-      }
-      @media (min-width: 768px) {
-        .app-preview .hero-screenshot {
-          max-width: 420px;
-          max-height: 80vh;
-        }
-      }
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
       .screenshot-placeholder {
         max-width: 400px;
         margin: 0 auto;
@@ -466,23 +447,6 @@
       }
       .about p:last-child {
         margin-bottom: 0;
-      }
-      .screenshots {
-        max-width: 100%;
-        margin: 120px auto;
-        padding: 0;
-        overflow: hidden;
-      }
-      .hero + .screenshots {
-        margin-top: 80px;
-      }
-      .screenshots h2 {
-        font-size: 3rem;
-        text-align: center;
-        margin-bottom: 60px;
-        font-weight: 700;
-        letter-spacing: -1.5px;
-        padding: 0 24px;
       }
       .carousel-container {
         position: relative;
@@ -651,8 +615,13 @@
         .cta-text {
           display: inline-block;
         }
-        .hero-phone {
-          width: 220px;
+        .hero-carousel {
+          width: 100%;
+          max-width: 280px;
+          margin: 0 auto;
+        }
+        .hero-carousel .carousel-track {
+          height: 600px;
         }
         .hero h1 {
           font-size: 2.5rem;
@@ -662,8 +631,7 @@
           font-size: 1.2rem;
         }
         .features h2,
-        .about h2,
-        .screenshots h2 {
+        .about h2 {
           font-size: 2rem;
         }
         .feature-grid {
@@ -692,9 +660,6 @@
         }
         .carousel-indicators {
           margin-top: 8px;
-        }
-        .screenshots h2 {
-          margin-bottom: 24px;
         }
         .cta-text.cta-text-hidden {
           display: none !important;
@@ -782,21 +747,12 @@
             ><em>Coming Soon to the App Store</em></span
           >
         </div>
-        <div class="hero-phone">
-          <img
-            src="assets/topcheese-live-games.PNG"
-            alt="TopCheese Live Games"
-            width="300"
-            height="650"
-          />
+        <div class="hero-carousel">
+          <div class="carousel-container">
+            <div class="carousel-track" id="carouselTrack"></div>
+          </div>
+          <div class="carousel-indicators" id="indicators"></div>
         </div>
-      </div>
-    </section>
-    <section class="screenshots">
-      <h2>See it in action</h2>
-      <div class="carousel-container">
-        <div class="carousel-track" id="carouselTrack"></div>
-        <div class="carousel-indicators" id="indicators"></div>
       </div>
     </section>
     <section class="features" id="features">
@@ -984,6 +940,10 @@
     </footer>
     <script>
       const items = [
+        {
+          text: "Live Games",
+          image: "assets/topcheese-live-games.PNG",
+        },
         {
           text: "Next Goal Prediction",
           image: "assets/topcheese-next-goal-prediction.PNG",
