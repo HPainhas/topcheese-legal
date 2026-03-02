@@ -198,6 +198,16 @@
         margin-bottom: 48px;
         animation: fadeInUp 1s ease-out;
       }
+      .hero p.hero-no-friction {
+        font-size: 1.5rem;
+        color: var(--text-secondary);
+        margin: -36px 0 36px;
+        animation: fadeInUp 1.1s ease-out;
+      }
+      .hero-no-friction strong {
+        color: rgba(255, 255, 255, 0.85);
+        font-weight: 600;
+      }
       /* 4. Badge typography — refined sizing and letter spacing */
       .hero-free-badge {
         display: inline-flex;
@@ -679,6 +689,10 @@
         .hero p {
           font-size: 1.2rem;
         }
+        .hero p.hero-no-friction {
+          font-size: 1.2rem;
+          margin: -28px 0 28px;
+        }
         .features h2,
         .about h2 {
           font-size: 2rem;
@@ -721,6 +735,13 @@
         }
         .hero p {
           font-size: 1rem;
+        }
+        .hero p.hero-no-friction {
+          font-size: 1rem;
+          margin: -24px 0 24px;
+        }
+        .hero-no-friction-line2 {
+          display: block;
         }
         .features h2,
         .about h2 {
@@ -767,6 +788,10 @@
           <p>
             Live shot tracking, player heat levels, and real-time momentum — all
             in one app.
+          </p>
+          <p class="hero-no-friction">
+            <strong>No signup. No login. No subscription.</strong>
+            <span class="hero-no-friction-line2">Straight to the action.</span>
           </p>
           <form
             id="waitlistForm"
