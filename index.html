@@ -218,11 +218,10 @@
       }
       .cta-text {
         display: none;
-        color: #888;
+        color: #9ca3af;
         font-size: 0.8rem;
-        font-weight: 600;
-        padding: 0 20px;
-        margin-top: 12px;
+        font-weight: 500;
+        margin-top: 4px;
         animation: fadeInUp 1.2s ease-out;
       }
       .waitlist-form {
@@ -300,6 +299,15 @@
         font-size: 0.95rem;
         min-height: 0;
         animation: fadeInUp 0.4s ease-out;
+      }
+      .waitlist-stats {
+        margin-top: 8px;
+        font-size: 0.9rem;
+        color: #9ca3af;
+      }
+      .waitlist-stats strong {
+        color: #2563eb;
+        font-weight: 600;
       }
       .waitlist-message.success {
         color: #34d399;
@@ -654,7 +662,7 @@
           text-align: center;
         }
         .cta-text {
-          display: inline-block;
+          display: block;
         }
         .hero-carousel {
           width: 100%;
@@ -750,7 +758,7 @@
     <section class="hero">
       <div class="hero-content">
         <div class="hero-text">
-          <div class="hero-free-badge">Free for the 2025-26 NHL season</div>
+          <div class="hero-free-badge">FREE for the 2025-26 NHL season</div>
           <h1>When the Puck Heats Up, You'll Know First</h1>
           <p>
             Live shot tracking, player heat levels, and real-time momentum — all
@@ -779,11 +787,14 @@
               autocomplete="off"
             />
             <button type="submit" class="waitlist-btn">Get Early Access</button>
+            <span class="cta-text" id="ctaText"
+              ><em>Coming Soon to the App Store</em></span
+            >
           </form>
           <p id="waitlistMessage" class="waitlist-message"></p>
-          <span class="cta-text" id="ctaText"
-            ><em>Coming Soon to the App Store</em></span
-          >
+          <p class="waitlist-stats">
+            Join <strong>60+</strong> fans already on the waitlist.
+          </p>
         </div>
         <div class="hero-carousel">
           <div class="carousel-container">
@@ -865,7 +876,7 @@
           <h3>Heat Indicators</h3>
           <p>
             Spot who's on a roll at a glance. Heating Up, Hot, On Fire —
-            intuitive indicators for who's building momentum.
+            intuitive visual indicators for who's building momentum.
           </p>
         </div>
         <div class="feature-card">
@@ -891,8 +902,8 @@
           </div>
           <h3>Next Goal Prediction</h3>
           <p>
-            See which team is likely to score next, based on live shot pressure
-            and momentum.
+            See which team is likely to score next, based on live shot pressure,
+            momentum, and more.
           </p>
         </div>
         <div class="feature-card">
