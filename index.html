@@ -226,104 +226,54 @@
         animation: fadeInUp 1s ease-out;
         text-align: center;
       }
-      .cta-text {
-        display: none;
-        color: #9ca3af;
-        font-size: 0.8rem;
-        font-weight: 500;
-        margin-top: 4px;
+      .download-cta {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
         animation: fadeInUp 1.2s ease-out;
       }
-      .waitlist-form {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 12px;
-        animation: fadeInUp 1.4s ease-out;
+      .download-badge {
+        display: inline-block;
+        transition: opacity 0.2s;
       }
-      .waitlist-honeypot {
-        position: absolute;
-        left: -9999px;
-        opacity: 0;
-        height: 0;
-        width: 0;
-        overflow: hidden;
-        pointer-events: none;
+      .download-badge:hover {
+        opacity: 0.85;
       }
-      .waitlist-input {
-        padding: 14px 20px;
-        border-radius: 12px;
-        border: 1px solid var(--border);
-        background: #222;
-        /* 2. Full white typed text for better contrast */
-        color: #fff;
-        font-size: 1rem;
-        font-family: inherit;
-        width: 340px;
-        outline: none;
-        transition:
-          border-color 0.2s,
-          box-shadow 0.2s;
+      .download-badge img {
+        height: 54px;
+        width: auto;
       }
-      /* 2. Semi-transparent placeholder for subtle hierarchy */
-      .waitlist-input::placeholder {
-        color: rgba(255, 255, 255, 0.45);
-      }
-      /* 5. Premium focus ring — accessible blue glow, no default outline */
-      .waitlist-input:focus {
-        border-color: var(--primary);
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
-      }
-      /* 3. CTA button with subtle resting glow for depth */
-      .waitlist-btn {
-        padding: 14px 28px;
-        border-radius: 12px;
-        border: none;
-        background: #2563eb;
-        color: #ffffff;
-        font-size: 1rem;
-        font-weight: 600;
-        font-family: inherit;
-        cursor: pointer;
-        box-shadow: 0 2px 12px rgba(37, 99, 235, 0.3);
-        transition:
-          background 0.2s,
-          transform 0.1s,
-          box-shadow 0.2s;
-        white-space: nowrap;
-      }
-      .waitlist-btn:hover {
-        background: #3b82f6;
-        box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
-        transform: translateY(-1px);
-      }
-      .waitlist-btn:active {
-        transform: scale(0.97);
-      }
-      .waitlist-btn:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-      }
-      .waitlist-message {
-        margin-top: 16px;
+      .download-tagline {
         font-size: 0.95rem;
-        min-height: 0;
-        animation: fadeInUp 0.4s ease-out;
+        color: var(--text-secondary);
       }
-      .waitlist-stats {
-        margin-top: 8px;
+      .download-qr {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .download-qr img {
+        width: 160px;
+        height: 160px;
+      }
+      .download-qr-label {
         font-size: 0.9rem;
-        color: #9ca3af;
+        color: var(--text-secondary);
       }
-      .waitlist-stats strong {
-        color: #2563eb;
-        font-weight: 600;
+      .apple-trademark {
+        font-size: 0.75rem;
+        color: #555;
+        margin-top: 12px;
       }
-      .waitlist-message.success {
-        color: #34d399;
-      }
-      .waitlist-message.error {
-        color: #f87171;
+      @media (min-width: 769px) {
+        .download-badge {
+          display: none;
+        }
+        .download-qr {
+          display: flex;
+        }
       }
       .mobile-break {
         display: none;
@@ -331,19 +281,6 @@
       @media (max-width: 768px) {
         .mobile-break {
           display: block;
-        }
-        .waitlist-form {
-          flex-direction: column;
-          justify-content: center;
-          padding: 0 24px;
-        }
-        .waitlist-input {
-          width: 100%;
-          max-width: 340px;
-        }
-        .waitlist-btn {
-          width: 100%;
-          max-width: 340px;
         }
       }
       @keyframes fadeInUp {
@@ -671,8 +608,8 @@
         .hero-text {
           text-align: center;
         }
-        .cta-text {
-          display: block;
+        .download-cta {
+          align-items: center;
         }
         .hero-carousel {
           width: 100%;
@@ -720,9 +657,6 @@
         }
         .carousel-indicators {
           margin-top: 8px;
-        }
-        .cta-text.cta-text-hidden {
-          display: none !important;
         }
         footer {
           padding: 32px 24px 24px;
@@ -783,7 +717,9 @@
     <section class="hero">
       <div class="hero-content">
         <div class="hero-text">
-          <div class="hero-free-badge">FREE for the 2025-26 NHL season</div>
+          <div class="hero-free-badge">
+            Now Available — FREE on the App Store
+          </div>
           <h1>When the Puck Heats Up, You'll Know First</h1>
           <p>
             Live shot tracking, player heat levels, and real-time momentum — all
@@ -793,37 +729,26 @@
             <strong>No signup. No login. No subscription.</strong>
             <span class="hero-no-friction-line2">Straight to the action.</span>
           </p>
-          <form
-            id="waitlistForm"
-            class="waitlist-form"
-            action="https://formspree.io/f/mjgelypv"
-            method="POST"
-          >
-            <input
-              type="text"
-              name="_gotcha"
-              class="waitlist-honeypot"
-              tabindex="-1"
-              autocomplete="off"
-              aria-hidden="true"
-            />
-            <input
-              type="email"
-              name="email"
-              class="waitlist-input"
-              placeholder="Enter your email"
-              required
-              autocomplete="off"
-            />
-            <button type="submit" class="waitlist-btn">Reserve My Spot</button>
-            <span class="cta-text" id="ctaText"
-              ><em>Coming Soon to the App Store</em></span
+          <div class="download-cta">
+            <a
+              class="download-badge"
+              href="https://apps.apple.com/us/app/topcheese/id6756594694"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-          </form>
-          <p id="waitlistMessage" class="waitlist-message"></p>
-          <p class="waitlist-stats">
-            Join <strong>80+</strong> fans getting early access.
-          </p>
+              <img
+                src="assets/download-on-the-app-store-badge-white.svg"
+                alt="Download on the App Store"
+              />
+            </a>
+            <div class="download-qr">
+              <img
+                src="assets/topcheese-appstore-qr.svg"
+                alt="QR code to download TopCheese on the App Store"
+              />
+              <span class="download-qr-label">Scan to download on iPhone</span>
+            </div>
+          </div>
         </div>
         <div class="hero-carousel">
           <div class="carousel-container">
@@ -1016,6 +941,9 @@
         <p class="footer-note">TopCheese</p>
         <p class="footer-tagline">When the puck heats up, you'll know first.</p>
         <p class="copyright">© 2025 TopCheese. All rights reserved.</p>
+        <p class="apple-trademark">
+          Apple and the Apple logo are trademarks of Apple Inc.
+        </p>
       </div>
     </footer>
     <script>
@@ -1185,59 +1113,6 @@
         if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
           hamburger.classList.remove("active");
           navLinks.classList.remove("active");
-        }
-      });
-
-      const waitlistForm = document.getElementById("waitlistForm");
-      const waitlistMessage = document.getElementById("waitlistMessage");
-
-      waitlistForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const btn = waitlistForm.querySelector(".waitlist-btn");
-        const emailInput = waitlistForm.querySelector(".waitlist-input");
-        const email = emailInput.value.trim();
-
-        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-          waitlistMessage.textContent = "Please enter a valid email address.";
-          waitlistMessage.className = "waitlist-message error";
-          return;
-        }
-
-        btn.style.width = btn.offsetWidth + "px";
-        btn.disabled = true;
-        btn.textContent = "Joining...";
-        waitlistMessage.textContent = "";
-        waitlistMessage.className = "waitlist-message";
-
-        try {
-          const response = await fetch(waitlistForm.action, {
-            method: "POST",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              email: email,
-              _gotcha: waitlistForm.querySelector("[name='_gotcha']").value,
-            }),
-          });
-
-          if (response.ok) {
-            waitlistForm.style.display = "none";
-            waitlistMessage.innerHTML =
-              'You\u2019re in!<br class="mobile-break"> You\u2019ll be first to know when we go live.';
-            waitlistMessage.className = "waitlist-message success";
-            const ctaText = document.getElementById("ctaText");
-            if (ctaText) ctaText.classList.add("cta-text-hidden");
-          } else {
-            throw new Error();
-          }
-        } catch {
-          btn.disabled = false;
-          btn.textContent = "Reserve My Spot";
-          waitlistMessage.textContent =
-            "Something went wrong. Please try again.";
-          waitlistMessage.className = "waitlist-message error";
         }
       });
     </script>
