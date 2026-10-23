@@ -358,7 +358,8 @@
         position: relative;
       }
       .features .section-label,
-      .about .section-label {
+      .about .section-label,
+      .status .section-label {
         display: block;
         font-size: 0.8125rem;
         font-weight: 600;
@@ -369,7 +370,8 @@
         text-align: center;
       }
       .features h2,
-      .about h2 {
+      .about h2,
+      .status h2 {
         margin-top: 0;
       }
       .features h2 {
@@ -449,7 +451,7 @@
       }
       .about {
         max-width: 720px;
-        margin: 80px auto 120px;
+        margin: 80px auto 80px;
         padding: 0 24px;
         text-align: center;
       }
@@ -475,6 +477,102 @@
       }
       .about p:last-child {
         margin-bottom: 0;
+      }
+      .status {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 0 24px;
+        text-align: center;
+      }
+      .status h2 {
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 48px;
+        font-weight: 700;
+        letter-spacing: -1.5px;
+      }
+      .status-overall {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        background: rgba(34, 197, 94, 0.08);
+        border: 1px solid rgba(34, 197, 94, 0.25);
+        border-radius: 16px;
+        padding: 22px 28px;
+        margin-bottom: 20px;
+        text-align: left;
+      }
+      .status-overall[data-state="degraded"] {
+        background: rgba(234, 179, 8, 0.08);
+        border-color: rgba(234, 179, 8, 0.3);
+      }
+      .status-overall[data-state="outage"] {
+        background: rgba(239, 68, 68, 0.08);
+        border-color: rgba(239, 68, 68, 0.3);
+      }
+      .status-indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #22c55e;
+        flex-shrink: 0;
+        box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
+        animation: status-pulse 2s ease-in-out infinite;
+      }
+      .status-overall[data-state="degraded"] .status-indicator {
+        background: #eab308;
+        box-shadow: 0 0 0 4px rgba(234, 179, 8, 0.2);
+        animation: status-pulse-degraded 2s ease-in-out infinite;
+      }
+      .status-overall[data-state="outage"] .status-indicator {
+        background: #ef4444;
+        box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.2);
+        animation: none;
+      }
+      @keyframes status-pulse {
+        0%,
+        100% {
+          box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
+        }
+        50% {
+          box-shadow: 0 0 0 8px rgba(34, 197, 94, 0.08);
+        }
+      }
+      @keyframes status-pulse-degraded {
+        0%,
+        100% {
+          box-shadow: 0 0 0 4px rgba(234, 179, 8, 0.2);
+        }
+        50% {
+          box-shadow: 0 0 0 8px rgba(234, 179, 8, 0.08);
+        }
+      }
+      .status-overall-text {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        min-width: 0;
+      }
+      .status-overall-title {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        letter-spacing: -0.02em;
+      }
+      .status-overall[data-state="degraded"] .status-overall-title {
+        color: #facc15;
+      }
+      .status-overall[data-state="outage"] .status-overall-title {
+        color: #f87171;
+      }
+      .status-overall-subtitle {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+      .status-updated {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
       }
       .carousel-container {
         position: relative;
@@ -664,8 +762,19 @@
           margin: -28px 0 28px;
         }
         .features h2,
-        .about h2 {
+        .about h2,
+        .status h2 {
           font-size: 2rem;
+        }
+        .status h2 {
+          margin-bottom: 32px;
+        }
+        .status-overall {
+          padding: 18px 20px;
+          gap: 16px;
+        }
+        .status-overall-title {
+          font-size: 1rem;
         }
         .screenshot-placeholder {
           max-width: 320px;
@@ -711,7 +820,8 @@
           display: block;
         }
         .features h2,
-        .about h2 {
+        .about h2,
+        .status h2 {
           font-size: 2rem;
         }
       }
@@ -741,6 +851,7 @@
         <div class="nav-links" id="navLinks">
           <a href="#features">Features</a>
           <a href="#about">About</a>
+          <a href="#status">Status</a>
           <a href="/privacy">Privacy</a>
           <a href="/terms">Terms</a>
           <a href="mailto:support@topcheeseapp.com">Contact Us</a>
@@ -978,6 +1089,22 @@
         cookies."
       </p>
     </section>
+    <section class="status" id="status" aria-labelledby="status-heading">
+      <span class="section-label" aria-hidden="true">Status</span>
+      <h2 id="status-heading">System status</h2>
+      <div class="status-overall" data-state="operational">
+        <span class="status-indicator" aria-hidden="true"></span>
+        <div class="status-overall-text">
+          <span class="status-overall-title">All systems operational</span>
+          <span class="status-overall-subtitle"
+            >TopCheese is working as expected.</span
+          >
+        </div>
+      </div>
+      <p class="status-updated">
+        Last updated: <time id="statusUpdated" datetime=""></time>
+      </p>
+    </section>
     <footer>
       <div class="footer-content">
         <p class="footer-note">TopCheese</p>
@@ -1149,6 +1276,16 @@
       setTimeout(() => {
         startAutoScroll();
       }, CAROUSEL_INTERVAL_MS);
+
+      const statusUpdated = document.getElementById("statusUpdated");
+      if (statusUpdated) {
+        const now = new Date();
+        statusUpdated.setAttribute("datetime", now.toISOString());
+        statusUpdated.textContent = now.toLocaleString(undefined, {
+          dateStyle: "medium",
+          timeStyle: "short",
+        });
+      }
 
       const hamburger = document.getElementById("hamburger");
       const navLinks = document.getElementById("navLinks");
