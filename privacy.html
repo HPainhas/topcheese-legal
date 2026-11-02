@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="assets/topcheese-app-icon-transparent.png" type="image/png" />
+    <link
+      rel="icon"
+      href="assets/topcheese-app-icon-transparent.png"
+      type="image/png"
+    />
     <title>Privacy Policy - TopCheese</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -411,7 +415,7 @@
           <div class="app-name">TopCheese</div>
         </div>
         <h1 class="page-title">Privacy Policy</h1>
-        <p class="last-updated">Last updated: February 2026</p>
+        <p class="last-updated">Last updated: November 2026</p>
       </div>
     </header>
 
@@ -433,15 +437,16 @@
             app version so we can run and improve the app and provide support.
           </li>
           <li>
-            <strong>Usage data.</strong> We may collect limited, aggregated
-            usage information (such as app interactions) to improve performance
-            and fix issues.
+            <strong>Usage data.</strong> We collect product analytics about how
+            you use the app (for example, which tabs or features you open, games
+            or players you view, and share actions). Events are tied to an
+            anonymous install identifier, not to your name or email.
           </li>
           <li>
             <strong>Crash and performance data.</strong> We use Sentry to
-            collect crash reports (e.g. error messages, stack traces),
-            performance metrics (e.g. load times, page transitions), and
-            limited analytics events to help us fix bugs and improve the app.
+            collect crash reports (e.g. error messages, stack traces) and
+            performance metrics (e.g. load times, page transitions) to help us
+            fix bugs and improve the app.
           </li>
         </ul>
         <p>
@@ -455,13 +460,29 @@
         <ul>
           <li>
             <strong>Through the app.</strong> Some data (e.g. app version,
-            device type) is collected automatically when you use the app.
+            device type, and usage events) is collected automatically when you
+            use the app.
           </li>
           <li>
-            <strong>Through third parties.</strong> We use Sentry for crash
-            reporting, performance monitoring, and analytics. Sentry may collect
-            usage, device, and error data as described in their
-            <a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer">privacy policy</a>.
+            <strong>Through third parties.</strong> We use
+            <strong>PostHog</strong> for product analytics (usage events and an
+            anonymous install identifier). We do not use PostHog session replay
+            or PostHog error tracking. PostHog may process this data as
+            described in their
+            <a
+              href="https://posthog.com/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+              >privacy policy</a
+            >. We use <strong>Sentry</strong> for crash reporting and
+            performance monitoring. Sentry may collect device and error data as
+            described in their
+            <a
+              href="https://sentry.io/privacy/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >privacy policy</a
+            >.
           </li>
         </ul>
       </div>
@@ -484,9 +505,9 @@
           <li>
             <strong>Service providers.</strong> We may use providers for
             hosting, infrastructure, analytics, or crash reporting. For example,
-            we use Sentry for crash and performance monitoring. These providers
-            process data only on our behalf and only as needed to run our
-            services.
+            we use PostHog for product analytics and Sentry for crash and
+            performance monitoring. These providers process data only on our
+            behalf and only as needed to run our services.
           </li>
         </ul>
         <p>We do not sell your personal information.</p>
