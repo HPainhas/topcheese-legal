@@ -154,7 +154,7 @@
         overflow: visible;
       }
       .hero-carousel .carousel-track {
-        height: 620px;
+        height: 600px;
         overflow: visible;
       }
       .hero-carousel .carousel-indicators {
@@ -578,21 +578,32 @@
         justify-content: center;
         gap: 60px;
         position: relative;
-        height: 620px;
+        height: 600px;
       }
       .screenshot-item {
-        width: 280px;
-        aspect-ratio: 9 / 19.5;
+        /* Proportional iPhone chassis — all chrome scales with --phone-w */
+        --phone-w: 280px;
+        --bezel: calc(var(--phone-w) * 0.03);
+        --radius-outer: calc(var(--phone-w) * 0.17);
+        --radius-inner: calc(var(--radius-outer) - var(--bezel) * 0.9);
+        --btn-w: max(2px, calc(var(--phone-w) * 0.012));
+        --titanium: #3f3f42;
+        --titanium-dark: #1c1c1e;
+        width: var(--phone-w);
+        /* iPhone 15/16 Pro body proportions */
+        aspect-ratio: 70.6 / 146.6;
+        box-sizing: border-box;
+        padding: var(--bezel);
         background: linear-gradient(
           160deg,
-          #2a2a2c 0%,
-          #0c0c0d 45%,
-          #1a1a1c 100%
+          #5c5c60 0%,
+          var(--titanium) 18%,
+          var(--titanium-dark) 48%,
+          #0d0d0e 78%,
+          #2c2c2e 100%
         );
-        border-radius: 52px;
-        border: 1.5px solid #3a3a3c;
-        padding: 11px;
-        box-sizing: border-box;
+        border-radius: var(--radius-outer);
+        border: 1px solid rgba(255, 255, 255, 0.18);
         color: var(--text-secondary);
         position: absolute;
         left: 50%;
@@ -603,54 +614,80 @@
         overflow: visible;
         pointer-events: none;
         box-shadow:
-          inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+          inset 0 0.5px 0 rgba(255, 255, 255, 0.35),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.08),
           0 8px 24px -10px rgba(0, 0, 0, 0.35);
       }
       .screenshot-screen {
         width: 100%;
         height: 100%;
-        border-radius: 42px;
+        border-radius: var(--radius-inner);
         overflow: hidden;
         background: #000;
         position: relative;
+        isolation: isolate;
+        box-shadow:
+          0 0 0 1.5px #000,
+          inset 0 0 0 0.5px rgba(255, 255, 255, 0.06);
       }
       .screenshot-screen img {
         display: block;
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: center center;
       }
-      /* Left side: action button + volume */
+      /* Dynamic Island */
+      .dynamic-island {
+        position: absolute;
+        top: 2.1%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 31%;
+        aspect-ratio: 126 / 37;
+        background: #000;
+        border-radius: 999px;
+        z-index: 2;
+        pointer-events: none;
+        box-shadow:
+          0 0 0 1px rgba(0, 0, 0, 0.65),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+      }
+      /* Left side: action button + volume rockers */
       .screenshot-item::before {
         content: "";
         position: absolute;
-        left: -3px;
-        top: 92px;
-        width: 3px;
-        height: 22px;
-        background: #2e2e30;
-        border-radius: 1px 2px 2px 1px;
+        left: calc(var(--btn-w) * -1);
+        top: calc(var(--phone-w) * 0.33);
+        width: var(--btn-w);
+        height: calc(var(--phone-w) * 0.08);
+        background: linear-gradient(90deg, #2a2a2c, var(--titanium));
+        border-radius: 1px 0 0 1px;
         box-shadow:
-          0 42px 0 0 #2e2e30,
-          0 78px 0 0 #2e2e30;
+          0 calc(var(--phone-w) * 0.15) 0 0 var(--titanium),
+          0 calc(var(--phone-w) * 0.15 + var(--phone-w) * 0.125) 0 0
+            var(--titanium),
+          inset -0.5px 0 0 rgba(255, 255, 255, 0.15);
       }
       /* Right side: power */
       .screenshot-item::after {
         content: "";
         position: absolute;
-        right: -3px;
-        top: 148px;
-        width: 3px;
-        height: 64px;
-        background: #2e2e30;
-        border-radius: 2px 1px 1px 2px;
+        right: calc(var(--btn-w) * -1);
+        top: calc(var(--phone-w) * 0.48);
+        width: var(--btn-w);
+        height: calc(var(--phone-w) * 0.23);
+        background: linear-gradient(270deg, #2a2a2c, var(--titanium));
+        border-radius: 0 1px 1px 0;
+        box-shadow: inset 0.5px 0 0 rgba(255, 255, 255, 0.15);
       }
       .screenshot-item.active {
         transform: translate(-50%, -50%) scale(1) translateZ(0);
         opacity: 1;
-        border-color: #4a4a4e;
+        border-color: rgba(255, 255, 255, 0.22);
         box-shadow:
-          inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+          inset 0 0.5px 0 rgba(255, 255, 255, 0.4),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.1),
           0 10px 28px -12px rgba(37, 99, 235, 0.16),
           0 8px 24px -10px rgba(0, 0, 0, 0.3);
         z-index: 10;
@@ -766,11 +803,11 @@
         }
         .hero-carousel {
           width: 100%;
-          max-width: 260px;
+          max-width: 240px;
           margin: 0 auto;
         }
         .hero-carousel .carousel-track {
-          height: 540px;
+          height: 480px;
         }
         .hero h1 {
           font-size: 2.5rem;
@@ -802,14 +839,15 @@
           max-width: 320px;
         }
         .screenshot-item {
-          width: 230px;
+          --phone-w: 220px;
+          width: var(--phone-w);
         }
         .screenshot-item.prev {
-          transform: translate(calc(-50% - 300px), -50%) scale(0.7)
+          transform: translate(calc(-50% - 280px), -50%) scale(0.7)
             translateZ(-100px) rotateY(15deg);
         }
         .screenshot-item.next {
-          transform: translate(calc(-50% + 300px), -50%) scale(0.7)
+          transform: translate(calc(-50% + 280px), -50%) scale(0.7)
             translateZ(-100px) rotateY(-15deg);
         }
         .screenshot-item.far-prev,
@@ -845,6 +883,15 @@
         .about h2,
         .status h2 {
           font-size: 2rem;
+        }
+        .screenshot-item {
+          --phone-w: 200px;
+        }
+        .hero-carousel {
+          max-width: 220px;
+        }
+        .hero-carousel .carousel-track {
+          height: 440px;
         }
       }
     </style>
@@ -1176,7 +1223,7 @@
         items.forEach((item, idx) => {
           const el = document.createElement("div");
           el.className = "screenshot-item";
-          el.innerHTML = `<div class="screenshot-screen"><img src="${item.image}" alt="${item.text}" loading="lazy" decoding="async"></div>`;
+          el.innerHTML = `<div class="screenshot-screen"><img src="${item.image}" alt="${item.text}" loading="lazy" decoding="async"><div class="dynamic-island" aria-hidden="true"></div></div>`;
           el.dataset.originalIndex = idx;
           track.appendChild(el);
           allItems.push(el);
